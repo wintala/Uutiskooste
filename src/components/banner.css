@@ -1,0 +1,33 @@
+#banner-wrap {
+	position: relative;
+	height: 300px;
+	color: white;
+}
+
+.banner {
+	z-index: -1;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	text-align: center;
+	position: absolute;
+	top: calc(-250% + 250px);
+	left: calc(-250% / 1.9);
+	border-radius: 100%;
+	width: 250%;
+	height: 250%;
+	background: linear-gradient(90deg, red 30%, rgb(255, 151, 151));
+}
+
+#banner-wrap h1 {
+	margin: 0;
+	font-size: 4em;
+	padding: 5px 15px;
+	text-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+}
+
+#banner-wrap h2 {
+	font-size: 1.3em;
+	margin: 0;
+	max-width: 70%;
+	padding: 5px 15px;
+	text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
