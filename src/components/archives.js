@@ -8,6 +8,7 @@ const Archive = () => {
 	const [newsDataSets, setNewsDataSets] = useState(null)
 	const [numberOfRecords, setNumberOfRecords] = useState(null)
 	const [showImages, setShowImages] = useState(false)
+	const [sourceDisplayOrder, setSourceDisplayOrder] = useState(["is", "yle", "il", "hs", "mtv"])
 	const [pageNum, setPageNum] = useState(1)
 
 	const itemsPerPage = 10
@@ -15,12 +16,12 @@ const Archive = () => {
   useEffect(() => {
 		service.getMetaData().then(r => setNumberOfRecords(r.numberOfRecords))
 		service.getRange(1, itemsPerPage).then(r => setNewsDataSets(r))
+		const order = window.localStorage.getItem("orderPreference")
+		if (order) {
+			setSourceDisplayOrder(JSON.parse(order))
+		}
   }, [])
 
-	console.log(newsDataSets)
-  if (!newsDataSets) {
-    return null
-	}
 	
 	const newDataSets = (pageNum) => {
 		const finnish = itemsPerPage * pageNum
@@ -41,6 +42,7 @@ const Archive = () => {
       mainHeader={"ARKISTO"}
       secondaryHeader={"Täältä löydät aiempien tuntien uutiskoosteet"} 
     />
+		{newsDataSets ? 
 		<div>
 			<h3>
 				Sivu (tuloksia sivulla 10):
@@ -64,11 +66,20 @@ const Archive = () => {
 					<h1>
 						{convertTZ(s.time, 'Europe/Helsinki').toString()}
 					</h1>
-					<Displayer newsData={s} withImages={showImages}/>
+					<Displayer newsData={s} withImages={showImages} order={sourceDisplayOrder}/>
 				</li>
 				)}
 			</ol>
-		</div>
+		</div> : 
+		<div className="loading-wrap">
+			<div>Haetaan uutisia</div>
+			<div className="dot-loading">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div> 
+			</div>
+		</div>}
 		</>
   )
 

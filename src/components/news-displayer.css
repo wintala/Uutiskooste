@@ -37,7 +37,9 @@
 	display: flex;
 	color: black;
 	text-decoration: none;
+	/*kuusirivinen otsikko mahtuu laajentamatta diviä*/
 	font-size: 18px;
+	line-height: 23px;
 	font-weight: bold;
 }
 
@@ -50,7 +52,6 @@
 	min-width: 200px;
 	height: 133px;
 	background-position: center;
-  /* Make the background image cover the area of the <div>, and clip the excess */
   background-size: cover;
 }
 
@@ -59,3 +60,76 @@
 	top: 5px;
 	height: 30px;
 }
+
+.dot-loading {
+  margin: 20px 0;
+  display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	flex-direction: row;
+	animation: dot-animation;
+}
+
+.dot-loading div {
+	border-radius: 50%;
+	background-color: rgb(190, 190, 190);
+	padding: 5px;
+	margin: 5px;
+	animation: dot-animation;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+.dot-loading div:nth-child(1) {
+	animation-delay: 0s;
+}
+
+.dot-loading div:nth-child(2) {
+	animation-delay: 0.5s;
+}
+
+.dot-loading div:nth-child(3) {
+	animation-delay: 1s;
+}
+
+.dot-loading div:nth-child(4) {
+	animation-delay: 1.5s;
+}
+
+.loading-wrap {
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+
+}
+
+@keyframes dot-animation {
+	0% {background-color: black}
+	25% {background-color: black;}
+	50% {background-color:  rgb(190, 190, 190);}
+	75% {background-color:  rgb(190, 190, 190);}
+	100% {background-color:  rgb(190, 190, 190);}
+}
+
+
+@media only screen and (max-width: 600px) {
+  .source-wrap {
+		width: 100%;
+		margin: 10px 0;
+		height: auto;
+		padding-top: 50px;
+	}
+
+	.article-image {
+		min-width: 100px;
+		height: 80px;
+	}
+
+	.article {
+		font-size: 15px;
+		line-height: 15px;
+	}
+}
+
+

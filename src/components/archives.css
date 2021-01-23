@@ -10,6 +10,7 @@
 
 .news-hour-wrap h1 {
 	text-align: center;
+	font-size: 1.5em;
 }
 
 .page-list {
@@ -53,4 +54,22 @@ h3 {
 .button-centerer {
 	text-align: center;
 	margin: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.news-hour-wrap h1 {
+		font-size: 18px;
+	}
+
+	.page-list-item {
+		width: 25px;
+		height: 25px;
+		line-height: 25px;
+		font-size: 12px;
+	}
+
+	h3 {
+		font-size: 14px;
+	}
 }

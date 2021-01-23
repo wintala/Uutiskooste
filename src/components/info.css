@@ -3,8 +3,9 @@
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	margin: auto;
 	width: 90%;
-	max-width: 800px;
+	max-width: 900px;
 	font-size: 18px;
 	font-weight: bold;
 	padding: 20px 30px;
+	box-sizing: border-box;
 }

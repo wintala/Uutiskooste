@@ -6,10 +6,26 @@ import isLogo from "../logos/is_logo.png"
 import mtvLogo from "../logos/mtv_logo.png"
 import yleLogo from "../logos/yle_logo.png"
 
-const Displayer = ({newsData, withImages}) => {
+const Displayer = ({newsData, withImages, order}) => {
   
   if (!newsData) {
-    return null
+    return(
+      <div className="loading-wrap">
+        <div>Haetaan uutisia</div>
+        <div className="dot-loading">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div> 
+        </div>
+      </div>
+    )
+  }
+
+  const orderedNewsData = {}
+
+  for (let elem of order) {
+    orderedNewsData[elem] = newsData.data[elem]
   }
 
 	const logos = {
@@ -22,7 +38,7 @@ const Displayer = ({newsData, withImages}) => {
 
   return(
     <div id="displayer">
-    {Object.keys(newsData.data).map(source => 
+    {Object.keys(orderedNewsData).map(source => 
       <div className="source-wrap" key={source} style={withImages ? null : {height: "auto", paddingTop: "50px"}}>
 				<img className="source-image" 
 					src={logos[source].logo} 

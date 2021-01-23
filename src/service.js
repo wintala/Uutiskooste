@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseUrl = "http://localhost:5000/api/"
+const baseUrl = "https://top5uutiset.herokuapp.com/api/"
 
 const getData = () => {
 	return axios.get(baseUrl + "current").then(r => r.data)
